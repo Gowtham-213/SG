@@ -18,6 +18,8 @@ export type Product = {
   image: string;
   description: string;
   details: string[];
+  stock: number;
+  delivery: string;
   featured?: boolean;
   bestSeller?: boolean;
 };
@@ -69,6 +71,8 @@ export const products: Product[] = [
     bestSeller: true,
     image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=1200&auto=format&fit=crop",
     description: "Immersive over-ear audio with adaptive noise control, plush memory foam, and all-day battery life.",
+    stock: 18,
+    delivery: "Delivery in 2-4 days",
     details: ["40-hour battery", "Adaptive noise cancellation", "Fast USB-C charging", "Premium aluminum frame"]
   },
   {
@@ -83,6 +87,8 @@ export const products: Product[] = [
     featured: true,
     image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=1200&auto=format&fit=crop",
     description: "A bright edge-to-edge display, pro-grade camera system, and fast 5G performance in a slim body.",
+    stock: 12,
+    delivery: "Delivery by tomorrow",
     details: ["6.7-inch OLED display", "Triple-lens camera", "128GB storage", "All-day battery"]
   },
   {
@@ -97,6 +103,8 @@ export const products: Product[] = [
     bestSeller: true,
     image: "https://images.unsplash.com/photo-1523398002811-999ca8dec234?q=80&w=1200&auto=format&fit=crop",
     description: "A breathable, polished layer with tailored pockets and a relaxed silhouette for every season.",
+    stock: 26,
+    delivery: "Delivery in 3-5 days",
     details: ["Soft linen blend", "Relaxed fit", "Machine washable", "Four utility pockets"]
   },
   {
@@ -112,6 +120,8 @@ export const products: Product[] = [
     bestSeller: true,
     image: "https://images.unsplash.com/photo-1460353581641-37baddab0fa2?q=80&w=1200&auto=format&fit=crop",
     description: "Responsive cushioning, breathable mesh, and a confident silhouette built for training and city days.",
+    stock: 8,
+    delivery: "Delivery in 2-3 days",
     details: ["Cloud foam midsole", "Rubber traction outsole", "Breathable knit upper", "True-to-size fit"]
   },
   {
@@ -126,6 +136,8 @@ export const products: Product[] = [
     featured: true,
     image: "https://images.unsplash.com/photo-1524592094714-0f0654e20314?q=80&w=1200&auto=format&fit=crop",
     description: "A stainless steel chronograph with sapphire glass, precise movement, and a refined everyday profile.",
+    stock: 7,
+    delivery: "Delivery in 3-5 days",
     details: ["Sapphire crystal", "Water resistant", "Stainless steel case", "Adjustable leather strap"]
   },
   {
@@ -140,6 +152,8 @@ export const products: Product[] = [
     bestSeller: true,
     image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=1200&auto=format&fit=crop",
     description: "A lightweight daily serum made to brighten, hydrate, and smooth dull skin without a sticky finish.",
+    stock: 31,
+    delivery: "Delivery in 2-4 days",
     details: ["15% vitamin C", "Hyaluronic acid", "Dermatologist tested", "Cruelty free"]
   },
   {
@@ -153,6 +167,8 @@ export const products: Product[] = [
     badge: "Fresh",
     image: "https://images.unsplash.com/photo-1610348725531-843dff563e2c?q=80&w=1200&auto=format&fit=crop",
     description: "A curated weekly box of seasonal produce, pantry greens, and chef-ready staples from trusted farms.",
+    stock: 14,
+    delivery: "Same-day delivery",
     details: ["12-15 fresh items", "Locally sourced", "Reusable packaging", "Same-day delivery in select areas"]
   },
   {
@@ -166,6 +182,8 @@ export const products: Product[] = [
     badge: "New",
     image: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?q=80&w=1200&auto=format&fit=crop",
     description: "Structured, spacious, and crafted with a buttery vegan leather finish for workdays and weekends.",
+    stock: 22,
+    delivery: "Delivery in 3-5 days",
     details: ["Laptop sleeve", "Magnetic closure", "Scratch-resistant finish", "Detachable strap"]
   },
   {
@@ -180,6 +198,8 @@ export const products: Product[] = [
     bestSeller: true,
     image: "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?q=80&w=1200&auto=format&fit=crop",
     description: "A sleek fitness watch with heart tracking, GPS routes, sleep insights, and smart notifications.",
+    stock: 10,
+    delivery: "Delivery in 2-4 days",
     details: ["Built-in GPS", "7-day battery", "Sleep tracking", "50 sport modes"]
   },
   {
@@ -193,6 +213,8 @@ export const products: Product[] = [
     badge: "30% OFF",
     image: "https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=1200&auto=format&fit=crop",
     description: "Clean leather-inspired sneakers with a cushioned footbed and versatile low-profile shape.",
+    stock: 16,
+    delivery: "Delivery in 2-3 days",
     details: ["Cushioned insole", "Durable outsole", "Low-top profile", "Easy-clean upper"]
   },
   {
@@ -207,6 +229,8 @@ export const products: Product[] = [
     featured: true,
     image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop",
     description: "A travel-ready edit of daily makeup tools, skin-prep minis, and polished finishing essentials.",
+    stock: 24,
+    delivery: "Delivery in 2-4 days",
     details: ["8-piece set", "Travel pouch included", "Vegan brushes", "Clean ingredients"]
   },
   {
@@ -221,6 +245,8 @@ export const products: Product[] = [
     bestSeller: true,
     image: "https://images.unsplash.com/photo-1447933601403-0c6688de566e?q=80&w=1200&auto=format&fit=crop",
     description: "Small-batch roasted beans with notes of cocoa, orange peel, and a smooth caramel finish.",
+    stock: 19,
+    delivery: "Delivery in 2-4 days",
     details: ["Whole bean", "Medium roast", "Ethically sourced", "Roasted weekly"]
   }
 ];

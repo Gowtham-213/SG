@@ -20,16 +20,22 @@ html {
 
 body {
   min-height: 100vh;
-  background: #f8fafc;
-  color: #0f172a;
+  background: #ffffff;
+  color: #111827;
 }
 
 .dark body {
-  background: #020617;
-  color: #e2e8f0;
+  background: #0b1120;
+  color: #e5e7eb;
 }
 
 ::selection {
-  background: #ff6b5f;
+  background: #111827;
   color: white;
+}
+
+input,
+textarea,
+button {
+  font: inherit;
 }

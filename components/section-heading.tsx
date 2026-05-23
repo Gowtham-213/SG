@@ -8,10 +8,12 @@ export function SectionHeading({
   description?: string;
 }) {
   return (
-    <div className="mx-auto mb-10 max-w-2xl text-center">
-      <p className="text-sm font-black uppercase tracking-[0.2em] text-coral">{eyebrow}</p>
-      <h2 className="mt-3 text-3xl font-black tracking-tight text-slate-950 dark:text-white sm:text-4xl">{title}</h2>
-      {description && <p className="mt-4 text-slate-600 dark:text-slate-300">{description}</p>}
+    <div className="mb-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+      <div className="max-w-2xl">
+        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">{eyebrow}</p>
+        <h2 className="mt-2 text-2xl font-semibold tracking-tight text-slate-950 dark:text-white sm:text-3xl">{title}</h2>
+      </div>
+      {description && <p className="max-w-xl text-sm leading-6 text-slate-600 dark:text-slate-300">{description}</p>}
     </div>
   );
 }

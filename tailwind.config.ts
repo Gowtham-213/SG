@@ -14,13 +14,13 @@ const config: Config = {
       },
       colors: {
         ink: "#111827",
-        citrus: "#f7c948",
-        coral: "#ff6b5f",
-        lagoon: "#00a7a7"
+        navy: "#0f172a",
+        line: "#e5e7eb",
+        muted: "#6b7280",
+        surface: "#f6f7f9"
       },
       boxShadow: {
-        soft: "0 18px 45px rgba(15, 23, 42, 0.10)",
-        glow: "0 18px 55px rgba(255, 107, 95, 0.22)"
+        soft: "0 10px 30px rgba(15, 23, 42, 0.06)"
       }
     }
   },

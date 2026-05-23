@@ -9,16 +9,16 @@ const services = [
 
 export function ServicesStrip() {
   return (
-    <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-      <div className="grid gap-4 rounded-[1.75rem] border border-slate-200 bg-white p-4 shadow-soft dark:border-white/10 dark:bg-slate-900 sm:grid-cols-2 lg:grid-cols-4">
+    <section className="border-y border-slate-200 bg-slate-50 dark:border-white/10 dark:bg-slate-900/40">
+      <div className="mx-auto grid max-w-7xl gap-px px-4 py-8 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
         {services.map((service) => (
-          <div key={service.title} className="flex items-start gap-4 rounded-2xl p-4 transition hover:bg-slate-50 dark:hover:bg-white/5">
-            <div className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-coral to-citrus text-slate-950">
-              <service.icon size={22} />
+          <div key={service.title} className="flex items-start gap-3 bg-white p-5 transition hover:bg-slate-50 dark:bg-slate-950 dark:hover:bg-slate-900">
+            <div className="grid h-10 w-10 shrink-0 place-items-center rounded-md border border-slate-200 text-slate-700 dark:border-white/10 dark:text-slate-200">
+              <service.icon size={19} />
             </div>
             <div>
-              <h3 className="font-black text-slate-950 dark:text-white">{service.title}</h3>
-              <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">{service.text}</p>
+              <h3 className="font-semibold text-slate-950 dark:text-white">{service.title}</h3>
+              <p className="mt-1 text-sm leading-5 text-slate-600 dark:text-slate-300">{service.text}</p>
             </div>
           </div>
         ))}
