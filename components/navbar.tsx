@@ -6,6 +6,7 @@ import { useState } from "react";
 import { categories } from "@/lib/products";
 import { CartButton } from "@/components/cart-button";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { useAuth } from "@/components/providers";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -17,6 +18,7 @@ const navLinks = [
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
+  const { user, logout } = useAuth();
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur dark:border-white/10 dark:bg-slate-950/95">
@@ -44,10 +46,21 @@ export function Navbar() {
         <div className="ml-auto flex items-center gap-2">
           <ThemeToggle />
           <CartButton />
-          <Link href="/login" className="hidden items-center gap-2 rounded-md bg-slate-950 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-800 dark:bg-white dark:text-slate-950 dark:hover:bg-slate-200 sm:inline-flex">
-            <UserRound size={16} />
-            Login
-          </Link>
+          {user ? (
+            <button
+              onClick={logout}
+              className="hidden items-center gap-2 rounded-md bg-slate-950 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-800 dark:bg-white dark:text-slate-950 dark:hover:bg-slate-200 sm:inline-flex"
+              title={user.email}
+            >
+              <UserRound size={16} />
+              Logout
+            </button>
+          ) : (
+            <Link href="/login" className="hidden items-center gap-2 rounded-md bg-slate-950 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-800 dark:bg-white dark:text-slate-950 dark:hover:bg-slate-200 sm:inline-flex">
+              <UserRound size={16} />
+              Login
+            </Link>
+          )}
           <button
             onClick={() => setOpen((value) => !value)}
             className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-slate-200 bg-white transition hover:bg-slate-50 dark:border-white/10 dark:bg-slate-900 dark:hover:bg-white/5 lg:hidden"
@@ -70,10 +83,23 @@ export function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <Link href="/login" onClick={() => setOpen(false)} className="inline-flex items-center gap-2 text-slate-950 dark:text-white">
-              <UserRound size={17} />
-              Login
-            </Link>
+            {user ? (
+              <button
+                onClick={() => {
+                  logout();
+                  setOpen(false);
+                }}
+                className="inline-flex items-center gap-2 text-left text-slate-950 dark:text-white"
+              >
+                <UserRound size={17} />
+                Logout
+              </button>
+            ) : (
+              <Link href="/login" onClick={() => setOpen(false)} className="inline-flex items-center gap-2 text-slate-950 dark:text-white">
+                <UserRound size={17} />
+                Login
+              </Link>
+            )}
           </nav>
         </div>
       )}

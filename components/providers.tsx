@@ -108,10 +108,58 @@ export function useTheme() {
   return context;
 }
 
+type User = {
+  email: string;
+  name: string;
+};
+
+type AuthContextType = {
+  user: User | null;
+  login: (email: string) => void;
+  logout: () => void;
+};
+
+const AuthContext = createContext<AuthContextType | undefined>(undefined);
+
+export function AuthProvider({ children }: { children: React.ReactNode }) {
+  const [user, setUser] = useState<User | null>(null);
+
+  useEffect(() => {
+    const saved = window.localStorage.getItem("trendmart-user");
+    if (saved) setUser(JSON.parse(saved));
+  }, []);
+
+  const value = useMemo<AuthContextType>(() => {
+    const login = (email: string) => {
+      const name = email.split("@")[0] || "Customer";
+      const nextUser = { email, name };
+      setUser(nextUser);
+      window.localStorage.setItem("trendmart-user", JSON.stringify(nextUser));
+    };
+
+    const logout = () => {
+      setUser(null);
+      window.localStorage.removeItem("trendmart-user");
+    };
+
+    return { user, login, logout };
+  }, [user]);
+
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+}
+
+export function useAuth() {
+  const context = useContext(AuthContext);
+  if (!context) throw new Error("useAuth must be used inside AuthProvider");
+  return context;
+}
+
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <ThemeProvider>
-      <CartProvider>{children}</CartProvider>
+      <AuthProvider>
+        <CartProvider>{children}</CartProvider>
+      </AuthProvider>
     </ThemeProvider>
   );
 }
